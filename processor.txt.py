@@ -17,8 +17,7 @@ selected_reg = 8
 reg = [0, 0, 0, 0, 0, 0, 0, 0]
 for i in range(1000):
   data.append(0)
-
-for i in range(len(code)):
+while codePointer < len(code):
   # This is the main interpret loop
   if code[codePointer] == '!':
     data[dataPointer] = 255 - data[dataPointer]
