@@ -98,16 +98,6 @@ for i in range(len(code)):
       print(chr(data[dataPointer]))
     else:
       print(data[dataPointer])
-  elif code[codePointer] == '(':
-    pass
-  elif code[codePointer] == ')':
-    for j in range(codePointer):
-      if j == 0:
-        limitstr = code[0]
-      else:
-        limitstr += code[j]
-    if data[dataPointer] == 0:
-      codePointer = limitstr.rfind('(')
   elif code[codePointer] == '`':
     pass
   else:
