@@ -1,4 +1,4 @@
-# Processor.txt v1.0 Specs
+# Processor.txt v1.0.1 Specs
 
 ## Registers:
 
@@ -34,9 +34,11 @@ $ => Pops a to DATA (doesn't erase a)
 | => Pops h to DATA (does erase h)  
 \> => Moves DATA to the RIGHT  
 < => Moves DATA to the LEFT  
-\+ => Increment DATA  
-\- => Decrement DATA  
+\+ => Increment DATA, mod 256  
+\- => Decrement DATA, mod 256  
 ~ => Print DATA to STDOUT  
+% => bitshift DATA right
+_ => bitshift DATA left, mod 256  
 \` => nop  
 
 ## Other stuff
@@ -44,3 +46,5 @@ DATA is the data pointer, CODE is the code pointer (that always moves forward in
 
 Comments are any data after the first line of the program, as the 
 interpreter only reads the first line.
+
+The processor is big-endian, because that was the easiest way to implement the PTVM
