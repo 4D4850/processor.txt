@@ -1,5 +1,5 @@
-# Processor.txt v1.0.1 Specs
-Not yet implemented, due to difficulties with making the loops. Please help by making a pull request on branch v1.1
+
+# Processor.txt v1.1 Specs
 
 ## Usage
 
@@ -63,5 +63,5 @@ The processor is big-endian, because that was the easiest way to implement the P
   -d or --debug:
     Perform a debug memory dump at the end of execution.
 
-# Plea For Help
-If you can help make loops work, please do so. Make a pull request for the v1.1 branch.
+
+
