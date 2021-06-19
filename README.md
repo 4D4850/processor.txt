@@ -1,5 +1,3 @@
-Not yet implemented, due to difficulties with making the loops. Please help.
-
 # Processor.txt v1.1 Specs
 
 ## Usage
@@ -64,5 +62,4 @@ interpreter only reads the first line.
   -d or --debug:
     Perform a debug memory dump at the end of execution.
 
-# Plea For Help
-If you can help make the loops work, please do so. Make a pull request for the v1.1 branch.
+
