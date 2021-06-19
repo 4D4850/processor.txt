@@ -1,4 +1,10 @@
-# Processor.txt v1.0 Specs
+Not yet implemented, due to difficulties with making the loops. Please help.
+
+# Processor.txt v1.1 Specs
+
+## Usage
+
+python3 processor.txt.py \[options\]
 
 ## Registers:
 
@@ -37,6 +43,10 @@ $ => Pops a to DATA (doesn't erase a)
 \+ => Increment DATA  
 \- => Decrement DATA  
 ~ => Print DATA to STDOUT  
+( => Target for ')'  
+) => If DATA is zero, jump to the most recent '('. Otherwise, do nothing.  
+% => bitshift DATA right  
+_ => bitshift DATA left, mod 256  
 \` => nop  
 
 ## Other stuff
@@ -44,3 +54,15 @@ DATA is the data pointer, CODE is the code pointer (that always moves forward in
 
 Comments are any data after the first line of the program, as the 
 interpreter only reads the first line.
+
+## Options
+
+  -c:
+    Has code be submittied on the command line, rather than in code.pt
+  -a:
+    Makes ~ output ASCII rather than numbers.
+  -d or --debug:
+    Perform a debug memory dump at the end of execution.
+
+# Plea For Help
+If you can help make the loops work, please do so. Make a pull request for the v1.1 branch.
