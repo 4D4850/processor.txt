@@ -1,4 +1,12 @@
 # Processor.txt v1.0.1 Specs
+=======
+Not yet implemented, due to difficulties with making the loops. Please help.
+
+# Processor.txt v1.1 Specs
+
+## Usage
+
+python3 processor.txt.py \[options\]
 
 ## Registers:
 
@@ -47,4 +55,16 @@ DATA is the data pointer, CODE is the code pointer (that always moves forward in
 Comments are any data after the first line of the program, as the 
 interpreter only reads the first line.
 
+
 The processor is big-endian, because that was the easiest way to implement the PTVM
+## Options
+
+  -c:
+    Has code be submittied on the command line, rather than in code.pt
+  -a:
+    Makes ~ output ASCII rather than numbers.
+  -d or --debug:
+    Perform a debug memory dump at the end of execution.
+
+# Plea For Help
+If you can help make loops work, please do so. Make a pull request for the v1.1 branch.
