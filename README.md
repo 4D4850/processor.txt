@@ -37,7 +37,7 @@ $ => Pops a to DATA (doesn't erase a)
 \+ => Increment DATA, mod 256  
 \- => Decrement DATA, mod 256  
 ~ => Print DATA to STDOUT  
-% => bitshift DATA right
+% => bitshift DATA right  
 _ => bitshift DATA left, mod 256  
 \` => nop  
 
