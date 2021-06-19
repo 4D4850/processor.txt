@@ -97,6 +97,10 @@ while codePointer < len(code):
       print(chr(data[dataPointer]))
     else:
       print(data[dataPointer])
+  elif code[codePointer] == '%':
+    data[dataPointer] = data[dataPointer] << 1
+  elif code[codePointer] == '_':
+    data[dataPointer] = data[dataPointer] >> 1
   elif code[codePointer] == '`':
     pass
   else:
