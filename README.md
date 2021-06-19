@@ -1,8 +1,5 @@
 # Processor.txt v1.0.1 Specs
-=======
-Not yet implemented, due to difficulties with making the loops. Please help.
-
-# Processor.txt v1.1 Specs
+Not yet implemented, due to difficulties with making the loops. Please help by making a pull request on branch v1.1
 
 ## Usage
 
