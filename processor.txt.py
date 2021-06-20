@@ -29,8 +29,9 @@ reg = [0] * 8
 data = [0]
 
 while codePointer < len(code):
+  char = code[codePointer]
   # This is the main interpret loop
-  if (char := code[codePointer]) == '!':
+  if char == '!':
     data[dataPointer] = 255 - data[dataPointer]
   elif char == '&':
     if selected_reg == 8:
@@ -40,15 +41,53 @@ while codePointer < len(code):
     if selected_reg == 8:
       dump('mem', 'Error: No Register Selected')
     data[dataPointer] = reg[selected_reg] ^ data[dataPointer]
-  elif char in (s := ',./;@[]\\'):
-    ind = s.find(char)
-    reg[ind] = data[dataPointer]
-    selected_reg = ind
-  elif char in (s := '$*?:#{}|'):
-    ind = s.find(char)
-    data[dataPointer] = reg[ind]
-    if char != '$':
-      reg[ind] = 0
+  elif code[codePointer] == ',':
+    reg[0] = data[dataPointer]
+    selected_reg = 0
+  elif code[codePointer] == '$':
+    data[dataPointer] = reg[0]
+  elif code[codePointer] == '.':
+    reg[1] = data[dataPointer]
+    selected_reg = 1
+  elif code[codePointer] == '*':
+    data[dataPointer] = reg[1]
+    reg[1] = 0
+  elif code[codePointer] == '/':
+    reg[2] = data[dataPointer]
+    selected_reg = 2
+  elif code[codePointer] == '?':
+    data[dataPointer] = reg[2]
+    reg[2] = 0
+  elif code[codePointer] == ';':
+    reg[3] = data[dataPointer]
+    selected_reg = 3
+  elif code[codePointer] == ':':
+    data[dataPointer] = reg[3]
+    reg[3] = 0
+  elif code[codePointer] == '@':
+    reg[4] = data[dataPointer]
+    selected_reg = 4
+  elif code[codePointer] == '#':
+    data[dataPointer] = reg[4]
+    reg[4] = 0
+  elif code[codePointer] == '[':
+    reg[5] = data[dataPointer]
+    selected_reg = 5
+  elif code[codePointer] == '{':
+    data[dataPointer] = reg[5]
+    reg[5] = 0
+  elif code[codePointer] == ']':
+    reg[6] = data[dataPointer]
+    selected_reg = 6
+  elif code[codePointer] == '}':
+    data[dataPointer] = reg[6]
+    reg[6] = 0
+  elif code[codePointer] == '\\':
+    reg[7] = data[dataPointer]
+    selected_reg = 7
+  elif code[codePointer] == '|':
+    data[dataPointer] = reg[7]
+    reg[7] = 0
   elif char == '>':
     dataPointer += 1
     if dataPointer > len(data):
