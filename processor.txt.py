@@ -25,8 +25,8 @@ print(type(code))
 dataPointer = 0
 codePointer = 0
 selected_reg = 8
-data = [0 for _ in range(1000)]
-reg = [0 for _ in range(8)]
+reg = [0] * 8
+data = [0]
 
 while codePointer < len(code):
   # This is the main interpret loop
@@ -51,6 +51,8 @@ while codePointer < len(code):
       reg[ind] = 0
   elif char == '>':
     dataPointer += 1
+    if dataPointer == len(data):
+      data.append(0)
   elif char == '<':
     dataPointer -= 1
   elif char == '+':
