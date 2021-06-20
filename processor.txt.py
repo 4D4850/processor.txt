@@ -101,6 +101,16 @@ while codePointer < len(code):
     data[dataPointer] = data[dataPointer] << 1
   elif code[codePointer] == '_':
     data[dataPointer] = data[dataPointer] >> 1
+  elif code[codePointer] == '(':
+    pass
+  elif code[codePointer] == ')':
+    if data[dataPointer] == 0:
+      for i in range(codePointer):
+        if i == 0:
+          limistr = code[codePointer]
+        else:
+          limitstr += code[codePointer]
+      codePointer = limitstr.rfind('(')
   elif code[codePointer] == '`':
     pass
   else:
