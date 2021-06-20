@@ -51,8 +51,8 @@ while codePointer < len(code):
       reg[ind] = 0
   elif char == '>':
     dataPointer += 1
-    if dataPointer == len(data):
-      data.append(0)
+    if dataPointer > len(data):
+      dump('mem', 'dataPointer out of bounds')
   elif char == '<':
     dataPointer -= 1
   elif char == '+':
