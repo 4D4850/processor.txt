@@ -100,7 +100,7 @@ while codePointer < len(code):
     data[dataPointer] = (data[dataPointer] - 1) % 256
   elif char == '~':
     if '-a' in sys.argv:
-      print(chr(data[dataPointer]))
+      print(chr(data[dataPointer]), end='')
     else:
       print(data[dataPointer])
   elif char == '%':
