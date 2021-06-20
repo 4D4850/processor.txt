@@ -15,7 +15,7 @@ codePointer = 0
 data = []
 selected_reg = 8
 reg = [0, 0, 0, 0, 0, 0, 0, 0]
-for i in range(1000):
+for i in range(1024):
   data.append(0)
 while codePointer < len(code):
   # This is the main interpret loop
@@ -87,7 +87,7 @@ while codePointer < len(code):
   elif code[codePointer] == '>':
     dataPointer += 1
   elif code[codePointer] == '<':
-    dataPointer -= 1
+    dataPointer = dataPointer - 1
   elif code[codePointer] == '+':
     data[dataPointer] = (data[dataPointer] + 1)%256
   elif code[codePointer] == '-':
@@ -107,10 +107,10 @@ while codePointer < len(code):
     if data[dataPointer] == 0:
       for i in range(codePointer):
         if i == 0:
-          limistr = code[codePointer]
+          limitstr = code[codePointer]
         else:
           limitstr += code[codePointer]
-      codePointer = limitstr.rfind('(')
+      codePointer = limitstr.rfind('(') + 1
   elif code[codePointer] == '`':
     pass
   else:
