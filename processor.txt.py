@@ -26,7 +26,7 @@ dataPointer = 0
 codePointer = 0
 selected_reg = 8
 data = [0 for _ in range(1000)]
-reg = [0 _ in range(8)]
+reg = [0 for _ in range(8)]
 
 while codePointer < len(code):
   # This is the main interpret loop
@@ -40,53 +40,15 @@ while codePointer < len(code):
     if selected_reg == 8:
       dump('mem', 'Error: No Register Selected')
     data[dataPointer] = reg[selected_reg] ^ data[dataPointer]
-  elif char == ',':
-    reg[0] = data[dataPointer]
-    selected_reg = 0
-  elif char == '$':
-    data[dataPointer] = reg[0]
-  elif char == '.':
-    reg[1] = data[dataPointer]
-    selected_reg = 1
-  elif char == '*':
-    data[dataPointer] = reg[1]
-    reg[1] = 0
-  elif char == '/':
-    reg[2] = data[dataPointer]
-    selected_reg = 2
-  elif char == '?':
-    data[dataPointer] = reg[2]
-    reg[2] = 0
-  elif char == ';':
-    reg[3] = data[dataPointer]
-    selected_reg = 3
-  elif char == ':':
-    data[dataPointer] = reg[3]
-    reg[3] = 0
-  elif char == '@':
-    reg[4] = data[dataPointer]
-    selected_reg = 4
-  elif char == '#':
-    data[dataPointer] = reg[4]
-    reg[4] = 0
-  elif char == '[':
-    reg[5] = data[dataPointer]
-    selected_reg = 5
-  elif char == '{':
-    data[dataPointer] = reg[5]
-    reg[5] = 0
-  elif char == ']':
-    reg[6] = data[dataPointer]
-    selected_reg = 6
-  elif char == '}':
-    data[dataPointer] = reg[6]
-    reg[6] = 0
-  elif char == '\\':
-    reg[7] = data[dataPointer]
-    selected_reg = 7
-  elif char == '|':
-    data[dataPointer] = reg[7]
-    reg[7] = 0
+  elif char in (s := ',./;@[]\\'):
+    ind = s.find(char)
+    reg[ind] = data[dataPointer]
+    selected_reg = ind
+  elif char in (s := '$*?:#{}|'):
+    ind = s.find(char)
+    data[dataPointer] = reg[ind]
+    if char != '$':
+      reg[ind] = 0
   elif char == '>':
     dataPointer += 1
   elif char == '<':
